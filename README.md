@@ -54,7 +54,3 @@
     
     - To run ESlint, type `node node_modules/.bin/eslint .`
     - Fixing code errors, just type `node node_modules/.bin/eslint . --fix`
-
-### Who do I talk to? ###
-
-&copy; [Rakhmatullah Yoga Sutrisna](https://source.gits.id/rakhmatullahyoga) - [PT GITS Indonesia](https://gits.co.id) 2017
