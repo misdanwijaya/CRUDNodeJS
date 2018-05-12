@@ -18,13 +18,22 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
  
         //add CRUDService POST here
         create: function (modelName, opts, cb) {
-            console.log(opts);
+            //console.log(opts);
             models[modelName].create(opts).nodeify(cb);
         },
  
         //add CRUDService UPDATE by id here
-
+        update: function (modelName, id, opts, cb) {
+            var whereOpts = { where: { id: id } };
+            models[modelName].update(opts, whereOpts).nodeify(cb);
+        },
+ 
         //add CRUDService DELETE by id here
+        destroy: function (modelName, opts, cb) {
+            var whereOpts = { where: { id: opts } };
+            models[modelName].destroy(whereOpts).nodeify(cb);
+        },
+ 
     };
 
     return CRUDService;

@@ -48,8 +48,29 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
         },
  
         // add interface update here
-
+        update: function (previousData, req, res, next) {
+            var model = req.query.model;
+            if (!model) {
+                let error = {code: 400, message: 'Please input models'};
+                next(error, null);
+            } else {
+                var id = req.params.id;
+                var data = req.body;
+                crudController.update(model, id, data, next);
+            }
+        },
+ 
         // add interface delete here
-    
+        delete: function (previousData, req, res, next) {
+            var model = req.query.model;
+            if (!model) {
+                let error = {code: 400, message: 'Please input models'};
+                next(error, null);
+            } else {
+                var id = req.params.id;
+                crudController.delete(model, id, next);
+            }
+        }
+ 
     };
 };

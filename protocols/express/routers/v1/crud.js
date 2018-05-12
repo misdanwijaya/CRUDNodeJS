@@ -29,7 +29,21 @@ module.exports = [
     },
  
     // add routes update data here
-   
+    {
+        method: 'put',
+        endpoint: '/global/:id',
+        handlers: [
+            'CRUDInterface.update'
+        ]
+    },
+ 
     // add routes delete data here
-    
+    {
+        method: 'delete',
+        endpoint: '/global/:id',
+        handlers: [
+            'CRUDInterface.delete'
+        ]
+    }
+ 
 ];

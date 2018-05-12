@@ -52,8 +52,34 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
         },
  
         // add controller update here
-
+        update: function (model, id, data, callback) {
+            CRUDService.updateData(model, id, data, function (err, result) {
+                if (err) {
+                    callback(err, null);
+                } else {
+                    if (!result) {
+                        callback(null, { code: 404, message: 'id not found'}, true);
+                    } else {
+                        callback(null, { message: 'update success' }, true);
+                    }
+                }
+            });
+        },
+ 
         // add controller delete here
-        
+        delete: function (model, id, callback) {
+            CRUDService.destroy(model, id, function (err, result) {
+                if (err) {
+                    callback(err, null);
+                } else {
+                    if (!result) {
+                        callback(null, { code: 404, message: 'id not found'}, true);
+                    } else {
+                        callback(null, { message: 'delete success' }, true);
+                    }
+                }
+            });
+        }
+ 
     };
 };
